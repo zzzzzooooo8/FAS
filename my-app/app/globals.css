@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@import "tailwindcss/preflight"
+@tailwind utilities;
+
+@layer base {
+  /* =========================================
+     主题 1: 暗夜极光 (Dark Geek)
+     背景: #131814
+     文字: 白色
+  ========================================= */
+  :root {
+    /* 全局背景 & 文字 */
+    --bg-main: #131814;
+    --text-main: #ffffff;
+
+    /* 卡片 A: 柠檬绿 (#E7FB64) + 黑字 */
+    --card-a-bg: #E7FB64;
+    --card-a-text: #000000;
+
+    /* 卡片 B: 磨砂玻璃 (白色透明) + 白字 */
+    /* 关键：使用 rgba 设置透明度，配合 backdrop-filter 实现磨砂 */
+    --card-b-bg: rgba(255, 255, 255, 0.1); 
+    --card-b-text: #ffffff;
+    --card-b-blur: 12px;     /* 开启磨砂模糊 */
+    --card-b-border: rgba(255, 255, 255, 0.2); /* 玻璃边缘光 */
+
+    /* 卡片 C: 白色 (#FFFFFF) + 黑字 */
+    --card-c-bg: #ffffff;
+    --card-c-text: #000000;
+  }
+
+  /* =========================================
+     主题 2: 活力运动 (Active Light)
+     背景: #F2F2E8
+     文字: 黑色
+  ========================================= */
+  [data-theme="light"] {
+    --bg-main: #F2F2E8;
+    --text-main: #000000;
+
+    /* 卡片 A: 纯白 (#FEFEFE) + 黑字 */
+    --card-a-bg: #FEFEFE;
+    --card-a-text: #000000;
+
+    /* 卡片 B: 柠檬绿 (#E7FB64) + 黑字 */
+    --card-b-bg: #E7FB64;
+    --card-b-text: #000000;
+    --card-b-blur: 0px;      /* 关闭磨砂 */
+    --card-b-border: transparent;
+
+    /* 卡片 C: 纯黑 (#000000) + 白字 */
+    --card-c-bg: #000000;
+    --card-c-text: #ffffff;
+  }
+
+  /* =========================================
+     主题 3: 梦幻紫 (Dreamy Purple)
+     背景: 渐变紫 (#E4DAF6 -> White)
+     文字: 黑色
+  ========================================= */
+  [data-theme="purple"] {
+    /* 这里的背景比较特殊，使用渐变 */
+    --bg-main: linear-gradient(180deg, #E4DAF6 0%, #ffffff 100%);
+    --text-main: #000000;
+
+    /* 卡片 A: 浅紫 (#E4DAF6) + 黑字 */
+    --card-a-bg: #E4DAF6;
+    --card-a-text: #000000;
+
+    /* 卡片 B: 白色 (#FFFFFF) + 黑字 */
+    --card-b-bg: #ffffff;
+    --card-b-text: #000000;
+    --card-b-blur: 0px;
+    --card-b-border: transparent;
+
+    /* 卡片 C: 黑色 (#000000) + 白字 */
+    --card-c-bg: #000000;
+    --card-c-text: #ffffff;
+  }
+}
+
+/* 这是一个工具类，用来让背景支持渐变 */
+.app-background {
+  background: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  transition: all 0.5s ease; /* 丝滑过渡动画 */
+}
