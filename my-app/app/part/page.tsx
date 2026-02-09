@@ -11,7 +11,7 @@ export default function TrainingPage() {
   // await checkUserSession(); 
 
   return (
-    <main className="flex w-full h-screen bg-black">
+    <main className="flex w-full h-screen bg-background">
       {/* 这里引入了 Client Component。
         Next.js 会在服务端预渲染它的 HTML 结构，
         然后在客户端 "Hydrate" (注水) 使其可交互。

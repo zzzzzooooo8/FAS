@@ -1,39 +1,30 @@
-// components/Header.tsx
-import Link from 'next/link';
+"use client"; 
+
+import Link from "next/link";
+import ThemeButton from "@/app/components/Themebutton"
 
 export default function Header() {
+
   return (
-    <header className="
+    <header
+      className="
       fixed top-0 left-0 w-full z-50 
-      bg-gradient-to-b from-gray-900/80 to-transparent
-    ">
-      
+      bg-gradient-to-b from-black/20 to-transparent backdrop-blur-[2px]
+    "
+    >
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        
-        {/* 左边：首页 */}
+        {/* 左边：首页 - 动态文字颜色 */}
         <Link href="/" className="group">
-          <span className="text-2xl font-black text-[#E8FC5D] tracking-tighter group-hover:text-gray-300 transition-colors">
+          <span className="text-2xl font-black tracking-tighter text-[#E8FC5D] transition-colors duration-300 group-hover:opacity-70">
             HOME
           </span>
         </Link>
 
         {/* 右边：三个主题按钮 */}
         <div className="flex items-center gap-4">
-          <button 
-            className="w-6 h-6 rounded-full border-2 border-transparent hover:border-white hover:scale-110 transition-all cursor-pointer bg-[#E8FC5D]" 
-            aria-label="Theme Black to Neon" 
-          />
-
-          <button 
-            className="w-6 h-6 rounded-full border-2 border-transparent hover:scale-110 hover:border-white transition-all cursor-pointer bg-white" 
-            aria-label="Theme White to Neon" 
-          />
-
-          <button 
-            className="w-6 h-6 rounded-full border-2 border-transparent hover:scale-110 hover:border-white transition-all cursor-pointer bg-[#d0bbee]" 
-            aria-label="Theme Purple to White" 
-          />
-          
+          <ThemeButton bgcolor='#E8FC5D' targetTheme='default'/>
+          <ThemeButton bgcolor='#F2F2E8' targetTheme='light'/>
+          <ThemeButton bgcolor='#E4DAF6' targetTheme='purple'/>
         </div>
       </div>
     </header>

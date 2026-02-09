@@ -1,27 +1,119 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+/* === 1. 配置主题变量 === */
+@theme {
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  
+  /* 在这里注册颜色，让 Tailwind 能识别 bg-background */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card-primary: var(--card-primary);
+  --color-card-secondary: var(--card-secondary);
+  --color-card-text: var(--card-text);
+  --color-searchbg: var(--search-bg);
+  --color-leftbox: var(--left-box);
+  --color-rightbox: var(--right-box);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* === 2. 定义颜色值 (这是我们之前做的主题切换) === */
+:root {
+  /* 🟢 默认主题: 黑/荧光绿 */
+  --background: #131814;
+  --foreground: #ffffff;
+  --card-primary: #E7FB64;
+  --card-secondary: #ffffff;
+  --card-text: #000000;
+  --search-bg: #27272a;
+  --left-box:#09090b;
+  --right-box:#18181b;
 }
 
+[data-theme='light'] {
+  /* ⚪️ 浅色主题: 米白/黑 */
+  --background: #f5f5ec;
+  --foreground: #000000;
+  --card-primary: #FEFEFE;
+  --card-secondary: #E7FB64;
+  --card-text: #000000;
+  --search-bg: #FEFEFE;
+  --left-box:#f8f8e4;
+  --right-box:#f6fbf6;
+}
+
+[data-theme='purple'] {
+  /* 🟣 紫色主题 */
+  --background: #f0e8f9; /* 简单的紫色背景 */
+  --foreground: #7c6259;
+  --card-primary: #ffffff;
+  --card-secondary: #acc47d;
+  --card-text: #000000;
+  --search-bg: #ffffff;
+  --left-box:#f6fbf6;
+  --right-box:#fcfba7;
+}
+
+/* === 3. 基础全局样式 === */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+  transition: background-color 0.5s ease, color 0.3s ease;
+  min-height: 100vh;
 }
 
+/* =========================================
+   🚨 关键：这里帮你把丢失的大小“找回来”！
+   如果不写这些，Tailwind 会把所有字都变小
+   ========================================= */
+
+/* 1. 恢复大标题 (ZOOLIN FITNESS) */
+h1 {
+  font-size: 4.5rem; /* 约 72px */
+  font-weight: 900;  /* 特粗 */
+  font-style: italic; /* 斜体 */
+  line-height: 1.1;
+  margin-bottom: 2rem;
+  letter-spacing: -0.05em;
+}
+
+/* 2. 恢复副标题 (WELCOME TO) */
+h2 {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #9ca3af; /* 灰色 */
+  margin-bottom: 0.5rem;
+}
+
+/* 3. 恢复卡片的大小 */
+/* 假设你的 SelectCard 用了 div，这里我们尝试全局匹配一下可能的卡片结构 */
+/* 如果你的卡片没有特殊类名，这里可能稍微有点难抓，但我尽量尝试 */
+
+/* 针对 SelectCard 内部的容器 */
+main > div > a, 
+main > div > div { 
+  /* 强制给首页中间那两个大卡片加高度 */
+  min-height: 300px; 
+  padding: 2.5rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* 卡片里的标题 */
+main > div > a h3,
+main > div > div h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  font-style: italic;
+  margin-bottom: 0.5rem;
+}
+
+/* 手机端适配 (防止手机上字太大撑破) */
+@media (max-width: 768px) {
+  h1 { font-size: 3rem; }
+  main > div > a { min-height: 200px; }
+}

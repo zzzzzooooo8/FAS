@@ -22,8 +22,8 @@ export default function MuscleTrainingFeature() {
         <HumanCanvas onMuscleSelect={handleMuscleSelect} />
         
         {/* 提示层 */}
-        <div className="absolute top-24 left-4 bg-black/50 p-4 rounded-lg backdrop-blur-sm z-10 pointer-events-none">
-          <h1 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+        <div className="absolute top-24 left-4 bg-white/70 p-4 rounded-lg backdrop-blur-sm z-10 pointer-events-none">
+          <h1 className=" !text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
             3D 肌肉解剖
           </h1>
           <p className="text-gray-400 text-sm mt-1">点击模型查看训练动作</p>
@@ -31,9 +31,9 @@ export default function MuscleTrainingFeature() {
       </div>
 
       {/* === 右侧：训练动作面板 === */}
-      <div className="w-80 bg-gray-800 border-l border-gray-700 shadow-2xl flex flex-col transition-all z-20">
+      <div className="w-80 bg-leftbox border-lshadow-2xl flex flex-col transition-all z-20">
         <div className="p-6 border-b border-gray-700">
-          <h2 className="text-xl font-bold flex items-center gap-2 text-white">
+          <h2 className="mt-8 text-xl font-bold flex items-center gap-2 text-white">
             🏋️ 部位训练
           </h2>
         </div>
