@@ -14,6 +14,7 @@
   --color-searchbg: var(--search-bg);
   --color-leftbox: var(--left-box);
   --color-rightbox: var(--right-box);
+  --color-idexcolor:var(--idexcolor);
 }
 
 /* === 2. 定义颜色值 (这是我们之前做的主题切换) === */
@@ -27,6 +28,7 @@
   --search-bg: #27272a;
   --left-box:#09090b;
   --right-box:#18181b;
+  --idexcolor:
 }
 
 [data-theme='light'] {

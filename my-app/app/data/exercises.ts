@@ -46,7 +46,7 @@ export const EXERCISES_DATA: Exercise[] = [
   // === 背部 (Back) ===
   {
     id: 4,
-    idName: "Back-Extension",
+    idName: "back-extension",
     name: "俯卧挺身",
     category: "背部",
     type: "bodyweight",
@@ -55,7 +55,7 @@ export const EXERCISES_DATA: Exercise[] = [
   },
   {
     id: 5,
-    idName: "Lat-Pulldown",
+    idName: "lat-pulldown",
     name: "高位下拉",
     category: "背部",
     type: "equipment",
@@ -66,7 +66,7 @@ export const EXERCISES_DATA: Exercise[] = [
   // === 腿部 (Legs) ===
   {
     id: 6,
-    idName: "Bulgarian-Split-Squat",
+    idName: "bulgarian-split-squat",
     name: "保加利亚蹲",
     category: "腿部",
     type: "bodyweight",
@@ -75,7 +75,7 @@ export const EXERCISES_DATA: Exercise[] = [
   },
   {
     id: 7,
-    idName: "Leg-Press",
+    idName: "leg-press",
     name: "倒蹬机",
     category: "腿部",
     type: "equipment",
